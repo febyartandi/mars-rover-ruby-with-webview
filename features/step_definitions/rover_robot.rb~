@@ -1,0 +1,29 @@
+Given /^not loggedin operator$/ do
+  #do nothing
+end
+
+When /^operator access the panel page$/ do
+  get "/panel"
+end
+
+Then /^form input commands is rendered$/ do
+  response.code.should == 200
+  response.should render_template("index.html.erb")
+end
+
+Given /^valid single string current position and command$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^operator send command to rover$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^operator should redirected to move page$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^the new single position rover should show$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
