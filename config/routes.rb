@@ -1,4 +1,8 @@
-Rover::Application.routes.draw do
-  root :to => "panel#index"
-  post "panel/move" => "panel#move"
+Rails.application.routes.draw do
+  root :to => "rovers#index"
+  resources :rovers, :only => [:index] do
+    collection do
+      post "move"
+    end
+  end
 end

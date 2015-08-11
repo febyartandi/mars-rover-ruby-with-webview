@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rover</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "jquery.min", "rover" %>
-  <%= csrf_meta_tag %>
+  <title>MarsRoverRubyOnRails</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= flash[:error] %>
-  <%= yield %>
+
+<%= yield %>
 
 </body>
 </html>

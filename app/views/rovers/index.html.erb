@@ -1,0 +1,39 @@
+<h1> Mars Rover Control Panel </h1>
+<%= flash[:error]%>
+<hr />
+
+<%= form_tag("/rovers/move") do %>
+  <fieldset>
+    <legend> Plateau's setting </legend>
+
+    <p>
+      <%= label_tag :plateau_corner %>:
+      <%= text_field_tag :plateau_corner, params[:plateau_corner] %> example: 5 5
+    </p>
+
+  </fieldset>
+
+  <fieldset>
+    <legend> Rover's Move </legend>
+
+    <div id="rover_move">
+
+      <div class="rover_command">
+        <p>
+          <%= label_tag :current_position %>:
+          <%= text_field_tag :current_position, params[:current_position] %> example: 1 2 N
+        </p>
+
+        <p>
+          <%= label_tag :move_command %>:
+          <%= text_field_tag :commands, params[:commands] %> example: LMLMLMLMM
+        </p>
+      </div>
+    </div>
+
+  </fieldset>
+
+  <%= submit_tag "GO" %>
+<% end %>
+<br />
+<%= render :partial => "result" unless @rover.blank? %>

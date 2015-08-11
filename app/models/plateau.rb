@@ -1,21 +1,16 @@
 class Plateau
-  attr_accessor :x_max, :y_max, :x_min, :y_min, :error_messages
-  
-  def initialize(upper_right_coordinates)
+  attr_accessor :x_max, :y_max, :x_min, :y_min
+
+  def initialize(plateau_corner)
     self.x_min = 0
     self.y_min = 0
-    self.x_max = 5
-    self.y_max = 5
-    if upper_right_coordinates.blank? or (sliced_coord = upper_right_coordinates.split(' ')).size != 2 or sliced_coord[0].to_i < self.x_min or sliced_coord[1].to_i < self.y_min
-      error_messages = "Upper Right Coordinates is not valid <br />"
-    else
-      self.x_max = sliced_coord[0].to_i
-      self.y_max = sliced_coord[1].to_i
-    end
+    sliced_coord = plateau_corner.split(SEPARATED_CHAR)
+    self.x_max = sliced_coord[0].to_i
+    self.y_max = sliced_coord[1].to_i
   end
-  
-  def valid_coordinates(x, y)
-    (x <= self.x_max ) and (x >= self.x_min) and (y <= self.y_max ) and (y >= self.y_min) 
+
+  def possible_movement?(x, y)
+    (x <= x_max ) and (x >= x_min) and (y <= y_max ) and (y >= y_min)
   end
 
 end
